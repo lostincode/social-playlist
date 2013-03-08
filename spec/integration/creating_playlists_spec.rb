@@ -9,5 +9,12 @@ feature 'Creating Playlist' do
     # choose('public')
     click_button 'Create Playlist'
     page.should have_content "Your playlist has been created."
+
+  playlist = Playlist.find_by_name("Test Playlist")
+  page.current_url.should == playlist_url(playlist)
+  title = "Test Playlist - Playlists - Social Playlist"
+  find("title").should have_content(title)
+
   end
 end
+

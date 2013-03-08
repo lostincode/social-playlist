@@ -1,0 +1,21 @@
+<h2>New Playlist</h2>
+<%= form_for(@playlist) do |f| %>
+  <p>
+    <%= f.label :name, "Playlist Name" %><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :description, "Please describe your playlist..." %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    Shared? <br />
+    <%= f.label :shared, "Yes" %>
+    <%= f.radio_button :shared, true %>
+    <%= f.label :shared, "No" %>
+    <%= f.radio_button :shared, false %>
+  </p>
+  <%= f.submit %>
+</p>
+<% end %>

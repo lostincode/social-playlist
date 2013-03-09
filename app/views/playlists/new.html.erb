@@ -1,5 +1,6 @@
 <h2>New Playlist</h2>
 <%= form_for(@playlist) do |f| %>
+<%= f.error_messages %>
   <p>
     <%= f.label :name, "Playlist Name" %><br />
     <%= f.text_field :name %>

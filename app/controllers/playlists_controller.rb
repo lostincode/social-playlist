@@ -13,7 +13,8 @@ class PlaylistsController < ApplicationController
       flash[:notice] = "Your playlist has been created."
       redirect_to @playlist
     else
-      # nothing yet
+      flash[:alert] = "Playlist has not been created"
+      render :action => "new"
     end
   end
 

@@ -1,3 +1,8 @@
 <% title(@playlist.name, "Playlists") %>
 <h2><%= @playlist.name %></h2>
+<%= link_to 'Back', playlists_path %>
 <%= link_to "Edit Playlist", edit_playlist_path(@playlist) %>
+<%= link_to "Delete Playlist",
+     playlist_path(@playlist),
+     :method => :delete,
+     :confirm => "Are you sure you want to delete this playlist?" %>

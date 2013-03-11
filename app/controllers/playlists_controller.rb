@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-
+  before_filter :find_playlist, :only => [:show, :edit, :update, :destroy]
   def index
     @playlists = Playlist.all
   end
@@ -20,11 +20,9 @@ class PlaylistsController < ApplicationController
   end
 
   def edit
-    @playlist = Playlist.find(params[:id])
   end
 
   def update
-    @playlist = Playlist.find(params[:id])
     if @playlist.update_attributes(params[:playlist])
       flash[:notice] = "Playlist has been updated."
       redirect_to @playlist
@@ -35,14 +33,19 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-    @playlist = Playlist.find(params[:id])
   end
 
   def destroy
-    @playlist = Playlist.find(params[:id])
     @playlist.destroy
     flash[:notice] = "Playlist has been deleted."
     redirect_to playlists_path
   end
 
+private
+  def find_playlist
+    @playlist = Playlist.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "The playlist you were looking for could not be found"
+    redirect_to playlists_path
+  end
 end

@@ -19,6 +19,17 @@ class PlaylistsController < ApplicationController
     end
   end
 
+  def edit
+    @playlist = Playlist.find(params[:id])
+  end
+
+  def update
+    @playlist = Playlist.find(params[:id])
+    @playlist.update_attributes(params[:playlist])
+    flash[:notice] = "Playlist has been updated."
+    redirect_to @playlist
+  end
+
   def show
     @playlist = Playlist.find(params[:id])
   end

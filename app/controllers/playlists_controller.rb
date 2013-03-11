@@ -25,9 +25,13 @@ class PlaylistsController < ApplicationController
 
   def update
     @playlist = Playlist.find(params[:id])
-    @playlist.update_attributes(params[:playlist])
-    flash[:notice] = "Playlist has been updated."
-    redirect_to @playlist
+    if @playlist.update_attributes(params[:playlist])
+      flash[:notice] = "Playlist has been updated."
+      redirect_to @playlist
+    else
+      flash[:alert] = "Playlist has not been updated."
+      render :action => "edit"
+    end
   end
 
   def show

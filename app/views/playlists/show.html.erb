@@ -1,5 +1,6 @@
 <% title(@playlist.name, "Playlists") %>
 <h2><%= @playlist.name %></h2>
+<%= link_to 'Back', playlists_path %>
 <%= link_to "Delete Playlist",
      playlist_path(@playlist),
      :method => :delete,

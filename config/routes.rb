@@ -1,7 +1,9 @@
 SocialPlaylist::Application.routes.draw do
   root :to => "playlists#index"
 
-  resources :playlists
+  resources :playlists do
+    resources :items
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

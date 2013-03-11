@@ -83,7 +83,9 @@ __________________________
 $ rails generate controller projects
 
 
-7. Define index on app/controllers/projects_controller.rb class ProjectsController < ApplicationController
+7. Define index on app/controllers/projects_controller.rb class
+
+ProjectsController < ApplicationController
   def index   end
 end
 

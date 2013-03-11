@@ -1,5 +1,6 @@
 class PlaylistsController < ApplicationController
   before_filter :find_playlist, :only => [:show, :edit, :update, :destroy]
+
   def index
     @playlists = Playlist.all
   end

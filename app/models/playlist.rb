@@ -1,5 +1,5 @@
 class Playlist < ActiveRecord::Base
-  attr_accessible :description, :owner, :name, :shared
+  attr_accessible :description, :name, :shared
 
   validates :name, :presence => true
 

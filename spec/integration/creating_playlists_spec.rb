@@ -22,7 +22,7 @@ feature 'Creating Playlist' do
   scenario "cannot create a playlist without filling in all fields" do
     click_button 'Create Playlist'
     page.should have_content ("Playlist has not been created")
-    #page.should have_content ("All playlist fields must be populated")
+    page.should have_content ("All playlist fields must be populated")
   end
 end
 

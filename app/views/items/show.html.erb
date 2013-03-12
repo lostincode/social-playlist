@@ -1,3 +1,4 @@
 <div id='item'>
   <h2><%= @item.order %></h2>
+  <%= link_to "New Song", new_playlist_item_song_path(@playlist, @item) %>
 </div>

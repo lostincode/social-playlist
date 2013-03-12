@@ -7,6 +7,7 @@ feature "Creating songs" do
     click_link "Bills Summer Jams"
     click_link "New Item"
     fill_in "Order", :with => "1"
+    fill_in "Title", :with => "MichaelBoltonRocks"
     click_button "Create Item"
   end
 

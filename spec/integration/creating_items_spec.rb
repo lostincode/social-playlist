@@ -9,6 +9,7 @@ feature "Creating items" do
   end
 
   scenario "Creating an item" do
+    fill_in "Title", :with => "Sample track title"
     fill_in "Order", :with => "1"
     click_button "Create Item"
     page.should have_content("Item has been created.")

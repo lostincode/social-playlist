@@ -3,8 +3,7 @@ class SongsController < ApplicationController
   before_filter :find_playlist_item
 
   def new
-    @song = @item.build_song
-  end
+    end
 
   private
     def find_playlist_item

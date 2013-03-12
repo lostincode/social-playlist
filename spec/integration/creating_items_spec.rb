@@ -10,7 +10,7 @@ feature "Creating items" do
 
   scenario "Creating an item" do
     fill_in "Title", :with => "Sample track title"
-    fill_in "Order", :with => "1"
+    fill_in "url", :with => "http://www.youtube.com/watch?v=lZD4ezDbbu4"
     click_button "Create Item"
     page.should have_content("Item has been created.")
   end
@@ -18,7 +18,5 @@ feature "Creating items" do
   scenario "Creating an item without valid attribute fails" do
     click_button "Create Item"
     page.should have_content("Item has not been created.")
-    page.should have_content("Order is not a number")
   end
-
 end

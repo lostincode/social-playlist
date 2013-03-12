@@ -8,7 +8,13 @@ class ItemsController < ApplicationController
   end
 
   def create
+    @song = Song.new
+    @song.url = params[:url]
+    if !@song.save
+      @song = Song.find_by_url(params[:url])
+    end
     @item = @playlist.items.build(params[:item])
+    @item.song_id = @song.id
     if @item.save
       flash[:notice] = "Item has been created."
       redirect_to [@playlist, @item]

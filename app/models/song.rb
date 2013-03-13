@@ -1,4 +1,4 @@
 class Song < ActiveRecord::Base
-  attr_accessible :song_id, :url
+  attr_accessible :url
   validates :url, uniqueness: true
 end

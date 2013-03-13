@@ -26,6 +26,7 @@ gem 'jquery-rails'
 group :test, :development do
   gem 'rspec-rails', '~> 2.11'
   gem 'launchy' #for launching browser window html dump
+  gem 'pry-debugger'
 end
 group :test do
   gem 'capybara', '1.1.2'

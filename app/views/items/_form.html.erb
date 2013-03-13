@@ -5,8 +5,10 @@
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= label_tag :url %><br>
-    <%= text_field_tag :url %>
+    <%= f.fields_for :song do |s| %>
+      <%= s.label :url %><br>
+      <%= s.text_field :url %>
+    <% end %>
   </p>
   <%= f.submit %>
 <% end %>

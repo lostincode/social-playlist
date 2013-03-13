@@ -5,7 +5,7 @@ SocialPlaylist::Application.routes.draw do
     resources :items
   end
 
-  resources :songs
+  #resources :songs
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,14 +1,14 @@
 <%= form_for [@playlist, @item] do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :title %><br>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </p>
   <p>
     <%= f.fields_for :song do |s| %>
-      <%= s.label :url %><br>
+      <%= s.label :url %>
       <%= s.text_field :url %>
     <% end %>
   </p>
-  <%= f.submit %>
+  <%= f.submit :class => 'btn' %>
 <% end %>

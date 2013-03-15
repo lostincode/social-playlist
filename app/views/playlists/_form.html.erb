@@ -1,21 +1,25 @@
 <%= form_for(@playlist) do |f| %>
 <%= f.error_messages %>
   <p>
-    <%= f.label :name, "Playlist Name" %><br />
+    <%= f.label :name, "Playlist Name" %>
     <%= f.text_field :name %>
   </p>
 
   <p>
-    <%= f.label :description, "Please describe your playlist..." %><br />
+    <%= f.label :description, "Please describe your playlist..." %>
     <%= f.text_field :description %>
   </p>
   <p>
-    Shared? <br />
+    Shared?
+    <label class="radio">
     <%= f.radio_button :shared, true %>
-    <%= f.label :shared, "Yes" %>
+    Yes
+    </label>
+    <label class="radio">
     <%= f.radio_button :shared, false %>
-    <%= f.label :shared, "No" %>
+    No
+    </label>
   </p>
-  <%= f.submit %>
+  <%= f.submit :class => "btn btn-success" %>
 </p>
 <% end %>

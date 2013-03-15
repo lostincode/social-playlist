@@ -1,5 +1,8 @@
-<%= link_to 'New Playlist', new_playlist_path %>
+<%= link_to 'New Playlist', new_playlist_path, :class => "btn" %>
 <h2>Playlists</h2>
-  <% @playlists.each do |playlist| %>
-    <li><%= link_to playlist.name, playlist %></li>
-  <% end %>
+
+  <ul class="nav nav-tabs nav-stacked">
+    <% @playlists.each do |playlist| %>
+      <li><%= link_to playlist.name, playlist %></li>
+    <% end %>
+  </ul>

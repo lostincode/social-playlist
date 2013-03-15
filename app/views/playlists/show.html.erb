@@ -1,13 +1,15 @@
 <% title(@playlist.name, "Playlists") %>
 <h2><%= @playlist.name %></h2>
-<%= link_to 'Back', playlists_path %>
-<%= link_to "Edit Playlist", edit_playlist_path(@playlist) %>
+<%= link_to 'Back', playlists_path, :class => 'btn' %>
+<%= link_to "Edit Playlist", edit_playlist_path(@playlist), :class => 'btn' %>
+<%= link_to "New Item", new_playlist_item_path(@playlist), :class => 'btn' %>
 <%= link_to "Delete Playlist",
      playlist_path(@playlist),
      :method => :delete,
-     :data => { :confirm => "Are you sure you want to delete this playlist?" } %>
-<%= link_to "New Item", new_playlist_item_path(@playlist) %>
-<br />
+     :data => { :confirm => "Are you sure you want to delete this playlist?" }, :class => 'btn btn-danger' %>
+
+<br /><br />
+
 <ol id='items'>
   <% @playlist.items.each do |item| %>
   <li><%= link_to item.title, [@playlist, item] %></li>

@@ -6,17 +6,20 @@ feature "Creating items" do
     visit '/'
     click_link "Bills Summer Jams"
     click_link "New Item"
+    click_button "Create Item"
   end
 
-  scenario "Creating an item" do
-    fill_in "Title", :with => "Sample track title"
-    fill_in "url", :with => "http://www.youtube.com/watch?v=lZD4ezDbbu4"
+  scenario "Creating a item" do
+    fill_in "Title", :with => "Test song title"
+    fill_in "Url", :with => "http://www.youtube.com/watch?v=lZD4ezDbbu4"
     click_button "Create Item"
     page.should have_content("Item has been created.")
   end
 
-  scenario "Creating an item without valid attribute fails" do
+  scenario "Creating a item without valid attributes fails" do
     click_button "Create Item"
     page.should have_content("Item has not been created.")
+    page.should have_content("Title can't be blank")
+    page.should have_content("Song url is invalid")
   end
 end

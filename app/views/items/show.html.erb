@@ -1,5 +1,5 @@
 <div id='item'>
   <h2><%= @item.title %></h2>
-  <%= link_to "New Song", new_playlist_item_path(@playlist, @item) %>
-  <h2><%= @item.title %></h2>
+  <%= @item.song.url %><br />
+  <%= link_to "View Playlist", playlist_path(@playlist) %>
 </div>

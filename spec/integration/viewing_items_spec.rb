@@ -3,10 +3,11 @@ require 'spec_helper'
 feature "Viewing items" do
   before do
     sample_playlist = Factory(:playlist, :name => "Mike's Seattle Jams")
-    Factory(:item, :playlist => sample_playlist, :title => "Sample track 1", :order => '1')
+    sample_song = Factory(:song)
+    Factory(:item, :playlist => sample_playlist, :title => "Sample track 1", :song => sample_song)
 
     sample_playlist_2 = Factory(:playlist, :name => "Bill's Florida Summer Jams")
-    Factory(:item, :playlist => sample_playlist_2, :title => "Sample track 2", :order => '2')
+    Factory(:item, :playlist => sample_playlist_2, :title => "Sample track 2", :song => sample_song)
 
     visit '/'
   end

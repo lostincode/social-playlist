@@ -13,10 +13,10 @@ feature 'Creating Playlist' do
     click_button 'Create Playlist'
     page.should have_content "Your playlist has been created."
 
-  playlist = Playlist.find_by_name("Test Playlist")
-  page.current_url.should == playlist_url(playlist)
-  title = "Test Playlist - Playlists - Social Playlist"
-  find("title").should have_content(title)
+    playlist = Playlist.find_by_name("Test Playlist")
+    page.current_url.should == playlist_url(playlist)
+    title = "Test Playlist - Playlists - Social Playlist"
+    find("title").should have_content(title)
   end
 
   scenario "cannot create a playlist without filling in all fields" do

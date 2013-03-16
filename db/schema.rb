@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130316213750) do
+ActiveRecord::Schema.define(:version => 20130316231655) do
 
   create_table "items", :force => true do |t|
     t.integer  "user_id"
@@ -32,7 +32,10 @@ ActiveRecord::Schema.define(:version => 20130316213750) do
     t.boolean  "shared"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
   end
+
+  add_index "playlists", ["user_id"], :name => "index_playlists_on_user_id"
 
   create_table "songs", :force => true do |t|
     t.string   "url"

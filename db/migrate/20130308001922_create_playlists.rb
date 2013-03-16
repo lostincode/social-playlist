@@ -3,7 +3,6 @@ class CreatePlaylists < ActiveRecord::Migration
     create_table :playlists do |t|
       t.string :name
       t.string :description
-      t.integer :owner
       t.boolean :shared
 
       t.timestamps

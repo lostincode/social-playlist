@@ -1,5 +1,6 @@
 class PlaylistsController < ApplicationController
   before_filter :find_playlist, :only => [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
     @playlists = Playlist.all
@@ -11,6 +12,7 @@ class PlaylistsController < ApplicationController
 
   def create
     @playlist = Playlist.new(params[:playlist])
+    @playlist.user = current_user
     if @playlist.save
       flash[:notice] = "Your playlist has been created."
       redirect_to @playlist

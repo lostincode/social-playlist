@@ -1,5 +1,12 @@
+<% title(@item.title, @playlist.name) %>
+
+<ul class="breadcrumb">
+  <li><a href="/">Home</a> <span class="divider">/</span></li>
+  <li><%= link_to @playlist.name, playlist_path(@playlist) %> <span class="divider">/</span></li>
+  <li class="active"><%= @item.title %></li>
+</ul>
+
 <div id='item'>
   <h2><%= @item.title %></h2>
   <%= @item.song.url %><br />
-  <%= link_to "View Playlist", playlist_path(@playlist) %>
 </div>

@@ -19,18 +19,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <nav>
-    <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %>
-    <%= link_to "Sign in", new_user_session_path %>
-  <% end %>
-  </nav>
-
-
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -51,7 +39,15 @@
     </div>
 
 <div class="container">
-
+  <nav>
+    <% if user_signed_in? %>
+    Signed in as <%= current_user.email %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn' %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-success' %>
+    <%= link_to "Sign in", new_user_session_path, :class => 'btn' %>
+  <% end %>
+  </nav>
 <% [:notice, :error, :alert].each do |level| %>
   <% unless flash[level].blank? %>
     <div class="alert alert-<%= flash_class(level) %>">
@@ -60,8 +56,9 @@
     </div>
   <% end %>
 <% end %>
-
+<br />
 <%= yield %>
+
 </div>
 
 </body>

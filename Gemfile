@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.6'
 gem 'dynamic_form', '1.1.4'
+gem 'devise'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -30,7 +31,9 @@ group :test, :development do
   gem 'rspec-rails', '~> 2.11'
   gem 'launchy' #for launching browser window html dump
   gem 'pry-debugger'
+  gem 'letter_opener' #opens sign-up confirmation emails in the browser
 end
+
 group :test do
   gem 'capybara', '1.1.2'
   gem 'factory_girl', '2.6.4' #creates default values for objects

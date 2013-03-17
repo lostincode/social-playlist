@@ -2,7 +2,10 @@ require 'spec_helper'
 
 feature "Editing Playlists" do
   before do
-    Factory(:playlist, :name => "TextMate 2")
+    user = Factory(:user, :email => "user@social-playlist.com")
+    user.confirm!
+    Factory(:playlist, :name => "TextMate 2", :user => user)
+    sign_in_as!(user)
     visit '/'
     click_link "TextMate 2"
     click_link "Edit Playlist"

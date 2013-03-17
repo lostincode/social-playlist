@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 feature "Editing Playlists" do
+  let!(:user) {Factory(:confirmed_user) }
+
   before do
-    user = Factory(:user, :email => "user@social-playlist.com")
-    user.confirm!
     Factory(:playlist, :name => "TextMate 2", :user => user)
     sign_in_as!(user)
     visit '/'

@@ -1,6 +1,9 @@
 <% title(@playlist.name, "Playlists") %>
 <h2><%= @playlist.name %></h2>
-<div id='playlist'><span id='user'>Created by <%= @playlist.user.email.split(/@/)[0] %></span></div>
+<%= @playlist.description %>
+<div id='playlist'>
+  <span id='user'>Created by <%= getUserFromEmail(@playlist.user.email) %></span>
+</div>
   <%= link_to 'Back', playlists_path, :class => 'btn' %>
 <div class="btn-group">
   <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">

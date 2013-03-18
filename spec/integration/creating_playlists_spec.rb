@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 feature 'Creating Playlist' do
+  let!(:playlist) { Factory(:playlist, :name => "Bills Summer Jams") }
+  let!(:user) { Factory(:confirmed_user, :email => "user@social-playlist.com") }
+
   before do
-    Factory(:playlist, :name => "Bills Summer Jams")
-    user = Factory(:user, :email => "user@social-playlist.com")
-    user.confirm!
     visit '/'
     click_link "New Playlist"
     page.should have_content("You need to sign in or sign up before continuing.")

@@ -1,6 +1,6 @@
 class PlaylistsController < ApplicationController
-  before_filter :find_playlist, :only => [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :find_playlist, :only => [:show, :edit, :update, :destroy]
 
   def index
     @playlists = Playlist.all

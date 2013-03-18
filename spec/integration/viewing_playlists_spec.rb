@@ -2,10 +2,9 @@ require 'spec_helper'
 
 feature "Viewing playlists" do
   let!(:user) {Factory(:user) }
-  let!(:playlist) {Factory(:playlist, :name => "Mike's Seattle Jams") }
+  let!(:playlist) {Factory(:playlist, :name => "Mike's Seattle Jams", :user => user) }
 
   before do
-    playlist.update_attribute(:user, user)
   end
 
   scenario "Listing all playlists" do

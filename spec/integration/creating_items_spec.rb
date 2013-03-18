@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 feature "Creating items" do
-  let!(:user) {Factory(:confirmed_user) }
+  let!(:user) { Factory(:confirmed_user) }
+  let!(:playlist) { Factory(:playlist, :name => "Bills Summer Jams", :user => user) }
 
   before do
-    Factory(:playlist, :name => "Bills Summer Jams", :user => user)
     visit '/'
     click_link "Bills Summer Jams"
     click_link "New Item"

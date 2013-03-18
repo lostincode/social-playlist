@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_filter :authenticate_user!, :except => [:show]
   before_filter :find_playlist
   before_filter :find_item, :only => [:show, :edit, :update, :destroy]
 

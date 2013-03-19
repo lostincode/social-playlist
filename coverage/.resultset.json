@@ -1,0 +1,14 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/mxstrand/RoR/social-playlist/app/models/permission.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1363715906
+  }
+}

@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show]
   before_filter :find_playlist
+  before_filter :authorize_create!, :only => [:new, :create]
   before_filter :find_item, :only => [:show, :edit, :update, :destroy]
 
   def new
@@ -31,6 +32,13 @@ class ItemsController < ApplicationController
 
     def find_item
       @item = @playlist.items.find(params[:id])
+    end
+
+    def authorize_create!
+      if current_user != @playlist.user && cannot?("create items".to_sym, @playlist)
+        flash[:alert] = "You cannot create items on this playlist."
+        redirect_to @playlist
+      end
     end
 
 end

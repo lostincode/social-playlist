@@ -5,6 +5,7 @@ class Playlist < ActiveRecord::Base
 
   belongs_to :user
   has_many :items, :dependent => :delete_all
+  has_many :songs, :through => :items
   has_many :permissions, :as => :thing
 
   validates :name, :presence => true

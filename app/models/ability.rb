@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start 'rails'
+
 class Ability
   include CanCan::Ability
   def initialize(user)

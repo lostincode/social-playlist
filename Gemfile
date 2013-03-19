@@ -39,6 +39,7 @@ group :test do
   gem 'capybara', '1.1.2'
   gem 'factory_girl', '2.6.4' #creates default values for objects
   gem 'email_spec' #provides methods for email specs that are better than default rails
+  gem 'simplecov', :require => false
 end
 
 # To use ActiveModel has_secure_password

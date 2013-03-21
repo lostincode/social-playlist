@@ -2,7 +2,7 @@
 <h2><%= @playlist.name %></h2>
 <%= @playlist.description %>
 <div id='playlist'>
-  <span id='user'>Created by <%= getUserFromEmail(@playlist.user.email) %></span>
+  <%= @playlist.items.size %> videos <span id='user'>Created by <%= getUserFromEmail(@playlist.user.email) %></span>
 </div>
   <%= link_to 'Back', playlists_path, :class => 'btn' %>
 <div class="btn-group">
@@ -26,6 +26,9 @@
 
 <ol id='items'>
   <% @playlist.items.each do |item| %>
-  <li><%= link_to item.title, [@playlist, item] %></li>
+  <li>
+    <img src="http://i1.ytimg.com/vi/<%= item.song.url.gsub("http://www.youtube.com/watch?v=", "") %>/mqdefault.jpg" class="img-polaroid" width="180" /><br />
+    <%= link_to item.title, [@playlist, item] %>
+  </li>
   <% end %>
 </ol>

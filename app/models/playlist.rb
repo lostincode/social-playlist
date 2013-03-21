@@ -4,7 +4,7 @@ class Playlist < ActiveRecord::Base
     joins(:permissions).where(:permissions => { :action => "edit", :user_id => user.id })}
 
   belongs_to :user
-  has_many :items, :dependent => :delete_all
+  has_many :items, :dependent => :delete_all, :include => :song
   has_many :songs, :through => :items
   has_many :permissions, :as => :thing
 

@@ -1,4 +1,6 @@
-<%= link_to 'New Playlist', new_playlist_path, :class => "btn" %>
+<% if user_signed_in? %>
+  <%= link_to 'New Playlist', new_playlist_path, :class => "btn" %>
+<% end %>
 <h2>Playlists</h2>
 
   <ul class="nav nav-tabs nav-stacked">

@@ -1,3 +1,19 @@
 // Place all the styles related to the playlists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ol, ul {
+  list-style: none;
+}
+ol li {
+  position: relative;
+  /* 220 / 700 */
+  float: left;
+  padding: 0;
+  margin: 0 2.85714% 30px 0;
+  /* 20 / 700 */
+}
+
+ol li a {
+  display:block;
+  margin-top:5px;
+}

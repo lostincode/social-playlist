@@ -6,12 +6,8 @@ feature 'Creating Playlist' do
 
   before do
     visit '/'
+    sign_in_as!(user)
     click_link "New Playlist"
-    page.should have_content("You need to sign in or sign up before continuing.")
-
-    fill_in "Email", :with => "user@social-playlist.com"
-    fill_in "Password", :with => "password"
-    click_button "Sign in"
     within("h2") { page.should have_content("New Playlist") }
   end
 

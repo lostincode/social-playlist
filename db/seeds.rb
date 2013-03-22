@@ -53,57 +53,57 @@ song = Song.create( url: "http://www.youtube.com/watch?v=jSsenVv7rF0")
 
 song = Song.create( url: "http://www.youtube.com/watch?v=X_Ur7koy6d0")
 
-
 #CREATE ITEMS
-item = Item.create( {song_id: 1,
+song_id = 1
+item = Item.create( {song_id: song_id += 1,
                      playlist_id: 1,
                      order: 1,
                      title: "Step to the Rear by Formula 412"},
                      :without_protection => true )
 
-item = Item.create( {song_id: 2,
+item = Item.create( {song_id: song_id += 1,
                      playlist_id: 1,
                      order: 2,
                      title: "Just Alright By Skrapz"},
                      :without_protection => true )
 
-item = Item.create( {song_id: 3,
+item = Item.create( {song_id: song_id += 1,
                      playlist_id: 1,
                      order: 3,
                      title: "Cincinnati Cypher"},
                      :without_protection => true )
 
-item = Item.create( {song_id: 4,
+item = Item.create( {song_id: song_id += 1,
                      playlist_id: 2,
                      order: 1,
                      title: "Midnight City by M83"},
                      :without_protection => true )
 
-item = Item.create( {song_id: 5,
+item = Item.create( {song_id: song_id += 1,
                      playlist_id: 2,
                      order: 2,
                      title: "The Night by School of Seven Bells (live)"},
                      :without_protection => true )
 
-item = Item.create( {song_id: 6,
+item = Item.create( {song_id: song_id += 1,
                      playlist_id: 2,
                      order: 3,
                      title: "Sigur Ros - Glosoli "},
                      :without_protection => true )
 
-item = Item.create( {song_id: 7,
+item = Item.create( {song_id: song_id += 1,
                      playlist_id: 3,
                      order: 1,
                      title: "Love Walks In by Van Halen"},
                      :without_protection => true )
 
-item = Item.create( {song_id: 8,
+item = Item.create( {song_id: song_id += 1,
                      playlist_id: 3,
                      order: 2,
                      title: "When Love and Hate Collide - Taylor Swift/Def Leppard"},
                      :without_protection => true )
 
-item = Item.create( {song_id: 9,
+item = Item.create( {song_id: song_id += 1,
                      playlist_id: 3,
                      order: 3,
                      title: "What It Takes by Aerosmith"},

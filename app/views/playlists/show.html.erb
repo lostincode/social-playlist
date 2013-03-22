@@ -1,11 +1,6 @@
 <% title(@playlist.name, "Playlists") %>
-<h2><%= @playlist.name %></h2>
-<%= @playlist.description %>
-<div id='playlist'>
-  <%= @playlist.items.size %> videos <span id='user'>Created by <%= getUserFromEmail(@playlist.user.email) %></span>
-</div>
-  <%= link_to 'Back', playlists_path, :class => 'btn' %>
-<div class="btn-group">
+
+<div class="btn-group pull-right">
   <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
     <i class="icon-cog"></i> Action
     <span class="caret"></span>
@@ -22,13 +17,40 @@
 </div>
 
 
-<br /><br />
+<h3><%= @playlist.name %></h3>
+<%= @playlist.description %>
 
-<ol id='items'>
-  <% @playlist.items.each do |item| %>
-  <li>
-    <img src="http://i1.ytimg.com/vi/<%= item.song.url.gsub("http://www.youtube.com/watch?v=", "") %>/mqdefault.jpg" class="img-polaroid" width="180" /><br />
-    <%= link_to item.title, [@playlist, item] %>
-  </li>
-  <% end %>
-</ol>
+<div id='playlist'>
+  <%= @playlist.items.size %> videos <span id='user'>Created by <%= getUserFromEmail(@playlist.user.email) %></span>
+</div><br />
+
+
+
+
+
+<div class="row-fluid">
+
+  <div class="span4">
+    <div id="player" class="img-polaroid"></div>
+  </div>
+
+  <div class="span8">
+    <ol id='items'>
+      <% @playlist.items.each do |item| %>
+      <li>
+        <% curr_yt_id = item.song.url.gsub("http://www.youtube.com/watch?v=", "") %>
+        <a href="#"><img src="http://i1.ytimg.com/vi/<%= curr_yt_id %>/mqdefault.jpg" class="img-polaroid" width="180" data-yt="<%= curr_yt_id %>" /></a>
+        <%= link_to item.title, [@playlist, item] %>
+      </li>
+      <% end %>
+    </ol>
+  </div><!--span8 -->
+
+</div><!--row-fluid -->
+
+
+<%
+@categories_string = @playlist.items.map {|item|
+  "#{item.song.url.gsub("http://www.youtube.com/watch?v=", "")}"
+}.join(',')
+%>

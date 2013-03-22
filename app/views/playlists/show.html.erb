@@ -18,10 +18,10 @@
 
 
 <h3><%= @playlist.name %></h3>
-<%= @playlist.description %>
+<p class="lead">Description:  <%= @playlist.description %></p>
 
 <div id='playlist'>
-  <%= @playlist.items.size %> videos <span id='user'>Created by <%= getUserFromEmail(@playlist.user.email) %></span>
+  <%= @playlist.items.size %> videos <span id='user'>created by <i class="icon-user"></i><strong><em><%= getUserFromEmail(@playlist.user.email) %></strong></em></span>
 </div><br />
 
 

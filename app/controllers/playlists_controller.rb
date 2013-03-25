@@ -37,6 +37,7 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+    @comment = @playlist.comments.build
   end
 
   def destroy

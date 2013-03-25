@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/billiam/Documents/ruby/social-playlist/app/models/permission.rb": [
+      "/home/mxstrand/RoR/social-playlist/app/models/permission.rb": [
         1,
         1,
         1,
@@ -9,6 +9,6 @@
         null
       ]
     },
-    "timestamp": 1364243109
+    "timestamp": 1364252418
   }
 }

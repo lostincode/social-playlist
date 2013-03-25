@@ -7,6 +7,7 @@ class Playlist < ActiveRecord::Base
   has_many :items, :dependent => :delete_all, :include => :song
   has_many :songs, :through => :items
   has_many :permissions, :as => :thing
+  has_many :comments
 
   validates :name, :presence => true
   validates :description, :presence => true

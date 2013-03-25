@@ -5,6 +5,7 @@ SocialPlaylist::Application.routes.draw do
 
   resources :playlists do
     resources :items
+    resources :comments
   end
 
   #resources :songs

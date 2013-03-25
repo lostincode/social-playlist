@@ -15,7 +15,7 @@ describe ItemsController do
       response.should redirect_to(playlist_path(playlist))
       flash[:alert].should eql("You cannot create items on this playlist.")
     end
-
+=begin
     it "Cannot access add item page for a playlist" do
       get :new, :playlist_id => playlist.id
       cannot_create_items!
@@ -25,6 +25,7 @@ describe ItemsController do
       post :create, :playlist_id => playlist.id
       cannot_create_items!
     end
+=end
 
   end
 

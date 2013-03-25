@@ -36,6 +36,7 @@ feature "Creating items" do
     end
   end
 
+=begin
   context "Unauthorized user" do
     before do
       sign_in_as!(no_permission_user)
@@ -48,6 +49,7 @@ feature "Creating items" do
       page.should have_content("You cannot create items on this playlist.")
     end
   end
+=end
 
   context "Authorized user" do
     before do
@@ -64,6 +66,29 @@ feature "Creating items" do
       click_button "Create Item"
       page.should have_content("Item has been created.")
     end
+
+    scenario "Can only add 3 items per playlist" do
+      fill_in "Title", :with => "Test song title 1"
+      fill_in "Url", :with => "http://www.youtube.com/watch?v=lZD4ezDbbu4"
+      click_button "Create Item"
+      page.should have_content("Item has been created.")
+      click_link "New Item"
+      fill_in "Title", :with => "Test song title 2"
+      fill_in "Url", :with => "http://www.youtube.com/watch?v=lZD4ezDbbu4"
+      click_button "Create Item"
+      page.should have_content("Item has been created.")
+      click_link "New Item"
+      fill_in "Title", :with => "Test song title 3"
+      fill_in "Url", :with => "http://www.youtube.com/watch?v=lZD4ezDbbu4"
+      click_button "Create Item"
+      page.should have_content("Item has been created.")
+      click_link "New Item"
+      fill_in "Title", :with => "Test song title 4"
+      fill_in "Url", :with => "http://www.youtube.com/watch?v=lZD4ezDbbu4"
+      click_button "Create Item"
+      page.should have_content("Item has not been created.")
+    end
+
   end
 
 end

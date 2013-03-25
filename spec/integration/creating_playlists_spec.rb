@@ -23,7 +23,7 @@ feature 'Creating Playlist' do
     title = "Test Playlist - Playlists - Social Playlist"
     find("title").should have_content(title)
     within("#playlist #user") do
-      page.should have_content("Created by user")
+      page.should have_content("created by user")
     end
   end
 

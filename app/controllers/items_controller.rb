@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show]
   before_filter :find_playlist
-  before_filter :authorize_create!, :only => [:new, :create]
+  #before_filter :authorize_create!, :only => [:new, :create]
   before_filter :find_item, :only => [:show, :edit, :update, :destroy]
 
   def new
@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
 
     if @item.save
       flash[:notice] = "Item has been created."
-      redirect_to [@playlist, @item]
+      redirect_to @playlist
     else
       flash[:alert] = "Item has not been created."
       render :action => "new"

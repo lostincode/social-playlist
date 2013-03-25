@@ -11,7 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20130325215114) do
 
   create_table "comments", :force => true do |t|
@@ -21,18 +20,15 @@ ActiveRecord::Schema.define(:version => 20130325215114) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
-=======
-ActiveRecord::Schema.define(:version => 20130325213349) do
->>>>>>> d55d6a4d4c6c6569b3365bd2228c0745f9bdbe3c
 
   create_table "items", :force => true do |t|
     t.integer  "user_id"
     t.integer  "song_id"
     t.integer  "playlist_id"
-    t.string   "title"
     t.integer  "order"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "title"
   end
 
   add_index "items", ["playlist_id"], :name => "index_items_on_playlist_id"
@@ -49,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20130325213349) do
   create_table "playlists", :force => true do |t|
     t.string   "name"
     t.string   "description"
+    t.integer  "owner"
     t.boolean  "shared"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -68,13 +65,9 @@ ActiveRecord::Schema.define(:version => 20130325213349) do
     t.datetime "updated_at", :null => false
   end
 
-<<<<<<< HEAD
-  add_index "songs", ["url"], :name => "index_songs_on_url", :unique => true
-=======
   create_table "tags", :force => true do |t|
     t.string "name"
   end
->>>>>>> d55d6a4d4c6c6569b3365bd2228c0745f9bdbe3c
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

@@ -39,21 +39,24 @@
 
 $(document).ready(function() {
     $items = [];
-    $("#items img").each(function(i){ $items[i] = $(this).data('yt') })
-    thePlayer.init($items.join());
+    var allItems = $("#items img");
+    if(allItems.length > 0){
+      allItems.each(function(i){ $items[i] = $(this).data('yt') })
+      thePlayer.init($items.join());
 
-    $("#items a.tl, #items a.il").click(function(){
-        var cindex  = thePlayer.player.getPlaylistIndex();
-        var itindex = $(this).parent().index();
-          if(cindex != itindex){
-            thePlayer.player.playVideoAt(itindex);
-          } else {
-            if(thePlayer.player.getPlayerState() == 1){
-              thePlayer.player.pauseVideo();
+      $("#items a.tl, #items a.il").click(function(){
+          var cindex  = thePlayer.player.getPlaylistIndex();
+          var itindex = $(this).parent().index();
+            if(cindex != itindex){
+              thePlayer.player.playVideoAt(itindex);
             } else {
-              thePlayer.player.playVideo();
+              if(thePlayer.player.getPlayerState() == 1){
+                thePlayer.player.pauseVideo();
+              } else {
+                thePlayer.player.playVideo();
+              }
             }
-          }
-        return false;
-    })
+          return false;
+      })
+    }
 });

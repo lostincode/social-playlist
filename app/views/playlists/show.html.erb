@@ -31,7 +31,9 @@
 <div class="row-fluid">
 
   <div class="span4">
-    <div id="player" class="img-polaroid"></div>
+    <% if @playlist.items.size > 0 %>
+      <div id="player" class="img-polaroid"></div>
+    <% end %>
   </div>
 
   <div class="span8">
@@ -39,7 +41,7 @@
       <% @playlist.items.each do |item| %>
       <li>
         <% curr_yt_id = item.song.url.gsub("http://www.youtube.com/watch?v=", "") %>
-        <a href="#" class="il"><img src="http://i1.ytimg.com/vi/<%= curr_yt_id %>/mqdefault.jpg" class="img-polaroid" width="180" data-yt="<%= curr_yt_id %>" /></a>
+        <a href="#" class="il"><img src="http://i1.ytimg.com/vi/<%= curr_yt_id %>/mqdefault.jpg" class="img-polaroid" width="160" data-yt="<%= curr_yt_id %>" /></a>
         <%= link_to item.title, [@playlist, item], :class => 'tl' %>
       </li>
       <% end %>

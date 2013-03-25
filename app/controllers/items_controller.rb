@@ -23,7 +23,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    #binding.pry
   end
 
   private

@@ -38,6 +38,7 @@
     <% if @playlist.items.size > 0 %>
       <div id="player" class="img-polaroid"></div>
     <% end %>
+<<<<<<< HEAD
     <h3>Comments</h3>
       <div id='comments'>
       <% if @playlist.comments.exists %>
@@ -48,6 +49,9 @@
       <% if user_signed_in? %>
       <%= render "comments/form" %>
       <% end %></div>
+=======
+    <div id="tags"><%= render @playlist.tags %></div>
+>>>>>>> d55d6a4d4c6c6569b3365bd2228c0745f9bdbe3c
   </div>
 
 

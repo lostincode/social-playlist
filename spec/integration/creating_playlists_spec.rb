@@ -32,5 +32,20 @@ feature 'Creating Playlist' do
     page.should have_content ("Playlist has not been created")
     page.should have_content ("3 errors prohibited this playlist from being saved")
   end
+
+  scenario "creating a playlist with tags" do
+    fill_in 'playlist_name', :with => 'Test Playlist'
+    fill_in 'playlist_description', :with => 'test playlist description'
+    choose 'playlist_shared_true'
+    fill_in "Tags", :with => "summer jams hits"
+    click_button 'Create Playlist'
+    page.should have_content "Your playlist has been created."
+    within("#tags") do
+      page.should have_content("summer")
+      page.should have_content("jams")
+      page.should have_content("hits")
+    end
+  end
+
 end
 

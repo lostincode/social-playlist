@@ -1,0 +1,10 @@
+<span class='tag'>
+<% is_playlist_owner(@playlist) do %>
+  <%= link_to "x",
+      remove_playlist_tag_path(@playlist, tag),
+      :method => :delete,
+      :remote => true,
+      :id => "delete-#{tag.name.parameterize}" %>
+<% end %>
+<%= tag.name %>
+</span>

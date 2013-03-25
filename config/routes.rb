@@ -5,7 +5,15 @@ SocialPlaylist::Application.routes.draw do
 
   resources :playlists do
     resources :items
+<<<<<<< HEAD
     resources :comments
+=======
+     resources :tags do
+        member do
+          delete :remove
+        end
+      end
+>>>>>>> d55d6a4d4c6c6569b3365bd2228c0745f9bdbe3c
   end
 
   #resources :songs

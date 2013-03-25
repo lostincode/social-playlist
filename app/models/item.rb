@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :song
   belongs_to :playlist
+  belongs_to :user
   attr_accessible :title, :song_attributes
   validates :title, :presence => true
   accepts_nested_attributes_for :song

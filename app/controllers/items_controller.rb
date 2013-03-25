@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = @playlist.items.build(params[:item])
+    @item.user = current_user
 
     if @item.save
       flash[:notice] = "Item has been created."

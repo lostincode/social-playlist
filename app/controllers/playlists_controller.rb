@@ -1,7 +1,7 @@
 class PlaylistsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :find_playlist, :only => [:show, :edit, :update, :destroy]
-  before_filter :authorize_owner, :only => [:edit, :destroy]
+  before_filter :authorize_owner, :only => [:update, :destroy]
 
   def index
     @playlists = Playlist.all
@@ -54,7 +54,7 @@ private
   end
   def authorize_owner
     if current_user != @playlist.user
-      flash[:alert] = "You cannot delete this playlist."
+      flash[:alert] = "You cannot edit this playlist."
       redirect_to playlists_path
     end
   end

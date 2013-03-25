@@ -19,4 +19,8 @@ module ApplicationHelper
   def getUserFromEmail(email)
       email.split(/@/)[0]
   end
+
+  def is_playlist_owner(playlist, &block)
+    block.call if playlist.user == current_user
+  end
 end

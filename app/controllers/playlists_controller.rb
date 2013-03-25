@@ -1,6 +1,7 @@
 class PlaylistsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :find_playlist, :only => [:show, :edit, :update, :destroy]
+  before_filter :authorize_owner, :only => [:edit, :destroy]
 
   def index
     @playlists = Playlist.all
@@ -50,5 +51,11 @@ private
     rescue ActiveRecord::RecordNotFound
     flash[:alert] = "The playlist you were looking for could not be found"
     redirect_to playlists_path
+  end
+  def authorize_owner
+    if current_user != @playlist.user
+      flash[:alert] = "You cannot delete this playlist."
+      redirect_to playlists_path
+    end
   end
 end

@@ -6,11 +6,14 @@ SocialPlaylist::Application.routes.draw do
   resources :playlists do
     resources :items
     resources :comments
-     resources :tags do
-        member do
-          delete :remove
-        end
+    resources :tags do
+      member do
+        delete :remove
       end
+    end
+    collection do
+      get :search
+    end
   end
 
   #resources :songs

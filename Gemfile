@@ -4,6 +4,7 @@ gem 'rails', '~> 3.2.6'
 gem 'dynamic_form', '~> 1.1.4'
 gem 'devise'
 gem 'cancan', '~> 1.6.7'
+gem 'searcher', :git => "git://github.com/radar/searcher"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

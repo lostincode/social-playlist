@@ -6,6 +6,10 @@ class Playlist < ActiveRecord::Base
   scope :editable_by, lambda { |user|
     joins(:permissions).where(:permissions => { :action => "edit", :user_id => user.id })}
 
+  searcher do
+    label :tag, :from => :tags, :field => :name
+  end
+
   belongs_to :user
   has_many :items, :dependent => :delete_all, :include => :song
   has_many :songs, :through => :items

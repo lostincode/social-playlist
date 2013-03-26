@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/radar/searcher
+  revision: 2244a7292fcda842d02ac4cfb0ab2520c8d5724c
+  specs:
+    searcher (0.0.6)
+      activerecord (~> 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -211,6 +218,7 @@ DEPENDENCIES
   rails (~> 3.2.6)
   rspec-rails (~> 2.11)
   sass-rails (~> 3.2.3)
+  searcher!
   simplecov
   sqlite3
   therubyracer

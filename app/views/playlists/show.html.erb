@@ -38,8 +38,8 @@
     <% if @playlist.items.size > 0 %>
       <div id="player" class="img-polaroid"></div>
     <% end %>
+    <div id="tags"><%= render @playlist.tags %></div>
     <h3>Comments</h3>
-      <div id="tags"><%= render @playlist.tags %></div>
       <div id='comments'>
       <% if @playlist.comments.exists %>
         <%= render @playlist.comments.select(&:persisted?) %>

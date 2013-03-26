@@ -47,6 +47,12 @@ class PlaylistsController < ApplicationController
     redirect_to playlists_path
   end
 
+  def search
+    @playlists = Playlist.search(params[:search])
+    #binding.pry
+    render "playlists/index"
+  end
+
 private
   def find_playlist
     @playlist = Playlist.find(params[:id])

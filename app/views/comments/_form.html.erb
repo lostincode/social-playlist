@@ -1,8 +1,9 @@
+<br />
 <strong>New comment</strong>
 <%= form_for [@playlist, @comment] do |f| %>
  <p>
-  <%= f.label :comment %><br>
-  <%= f.text_area :comment %>
-</P>
-<%= f.submit %>
+  <%= f.label :comment %>
+  <%= f.text_area :comment, :size => "30x5" %>
+</p><br>
+<%= f.submit :class => 'btn' %>
 <% end %>

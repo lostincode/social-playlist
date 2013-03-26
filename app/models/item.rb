@@ -9,6 +9,8 @@ class Item < ActiveRecord::Base
   before_validation :check_for_existing_song
   validate :check_item_count_for_user
 
+  acts_as_list
+
   def check_for_existing_song
     self.song = Song.find_or_create_by_url(song.url)
   end

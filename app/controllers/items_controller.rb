@@ -4,6 +4,20 @@ class ItemsController < ApplicationController
   #before_filter :authorize_create!, :only => [:new, :create]
   before_filter :find_item, :only => [:show, :edit, :update, :destroy]
 
+  def index
+    @items = Item.order("position")
+  end
+
+  def sort
+    @items = Item.all
+    @items.each do |item|
+    item.position = params['item'].index(item.id.to_s) + 1
+    item.save
+  end
+
+  render :nothing => true
+  end
+
   def new
     @item = @playlist.items.build
     @item.build_song

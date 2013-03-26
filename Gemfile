@@ -6,6 +6,9 @@ gem 'devise'
 gem 'cancan', '~> 1.6.7'
 gem 'searcher', :git => "git://github.com/radar/searcher"
 
+gem 'acts_as_list'
+gem 'jquery-ui-rails'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -13,7 +16,6 @@ group :production do
   gem 'pg'
   gem 'unicorn'
 end
-
 
 # Gems used only for assets and not required
 # in production environments by default.

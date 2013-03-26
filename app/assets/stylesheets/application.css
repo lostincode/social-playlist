@@ -12,3 +12,7 @@
  *= require_tree .
  */
 .whiteOut { color:#FFF; margin-right:5px; font-size:12px;}
+
+/*
+ *= require jquery.ui.all
+ */

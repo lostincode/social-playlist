@@ -110,6 +110,7 @@ GEM
     multi_json (1.7.1)
     nokogiri (1.5.6)
     orm_adapter (0.0.7)
+    pg (0.14.1)
     polyglot (0.3.3)
     pry (0.9.12)
       coderay (~> 1.0.5)
@@ -214,6 +215,7 @@ DEPENDENCIES
   launchy
   less-rails-bootstrap
   letter_opener
+  pg
   pry-debugger
   rails (~> 3.2.6)
   rspec-rails (~> 2.11)

@@ -9,7 +9,10 @@ gem 'searcher', :git => "git://github.com/radar/searcher"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+group :production do
+  gem 'pg'
+  gem 'unicorn'
+end
 
 
 # Gems used only for assets and not required
@@ -30,6 +33,7 @@ end
 gem 'jquery-rails'
 
 group :test, :development do
+  gem 'sqlite3'
   gem 'rspec-rails', '~> 2.11'
   gem 'launchy' #for launching browser window html dump
   gem 'pry-debugger'

@@ -9,12 +9,15 @@ class ItemsController < ApplicationController
   end
 
   def sort
-    @items = Item.all
-    #binding.pry
-    @items.each do |item|
-      item.position = params['item'].index(item.id.to_s) + 1
-      item.save
+    new_items = []
+    params['item'].each_with_index do |item_id, index|
+      logger.info()
+      new_items[index] = Item.find(item_id)
+      new_items[index].position = index
     end
+    binding.pry
+    new_items[0].playlist.items.clear
+    new_items.each { |item| item.save! }
     render :nothing => true
   end
 

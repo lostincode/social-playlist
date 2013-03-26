@@ -10,12 +10,12 @@ class ItemsController < ApplicationController
 
   def sort
     @items = Item.all
+    #binding.pry
     @items.each do |item|
-    item.position = params['item'].index(item.id.to_s) + 1
-    item.save
-  end
-
-  render :nothing => true
+      item.position = params['item'].index(item.id.to_s) + 1
+      item.save
+    end
+    render :nothing => true
   end
 
   def new

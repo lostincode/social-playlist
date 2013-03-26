@@ -52,7 +52,6 @@
 
 
   <div class="span8">
-    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js", "rails.js" %>
     <ol id='items'>
       <%= render @playlist.items %>
     </ol>
@@ -63,24 +62,23 @@
       // Sorting the list
 
       $(document).ready(function(){
-      $('#items').sortable({
-      dropOnEmpty: false,
-      handle: '.handle',
-      cursor: 'crosshair',
-      items: 'li',
-      opacity: 0.4,
-      scroll: true,
-      update: function(){
-      $.ajax({
-      type: 'post',
-      data: $('#items').sortable('serialize'),
-      dataType: 'script',
-      complete: function(request){
-      $('#items').effect('highlight');
-      },
-      url: 'playlists/items/sort'})
-      }
-      });
+        $('#items').sortable({
+            dropOnEmpty: false,
+            handle: '.handle',
+            cursor: 'crosshair',
+            items: 'li',
+            opacity: 0.4,
+            scroll: true,
+            update: function(){
+                        $.ajax({
+                        type: 'post',
+                        data: $('#items').sortable('serialize'),
+                        dataType: 'script',
+                        complete: function(request){
+                          $('#items').effect('highlight');
+                        },
+                        url: '<%= @playlist.id %>/items/sort'})}
+            });
       });
       <% end %>
       <% end %>

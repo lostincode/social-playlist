@@ -3,14 +3,16 @@ SocialPlaylist::Application.routes.draw do
 
   root :to => "playlists#index"
 
-  resources :playlists do
-    resources :items
-    resources :comments
-    resources :tags do
-      member do
-        delete :remove
+    resources :playlists do
+      resources :items do
+        post :sort, on: :collection
       end
-    end
+      resources :comments
+      resources :tags do
+        member do
+          delete :remove
+        end
+      end
     collection do
       get :search
     end

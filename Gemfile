@@ -10,6 +10,8 @@ gem 'searcher', :git => "git://github.com/radar/searcher"
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'acts_as_list'
+gem 'jquery-ui-rails'
 
 
 # Gems used only for assets and not required

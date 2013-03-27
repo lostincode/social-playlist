@@ -11,7 +11,7 @@ class Playlist < ActiveRecord::Base
   end
 
   belongs_to :user
-  has_many :items, :dependent => :delete_all, :include => :song, :order => 'position DESC'
+  has_many :items, :dependent => :delete_all, :include => :song#, :order => 'items.position DESC'
   has_many :songs, :through => :items
   has_many :permissions, :as => :thing
   has_many :comments

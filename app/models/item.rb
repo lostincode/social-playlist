@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+  default_scope :order => 'position ASC'
   belongs_to :song
   belongs_to :playlist
   belongs_to :user
@@ -16,12 +17,12 @@ class Item < ActiveRecord::Base
   end
 
   def check_item_count_for_user
-    if self.user_id != self.playlist.user_id
-      user_item_count = self.playlist.items.find_all_by_user_id(self.user_id).count
-      if user_item_count >= 3
-        errors.add(:item, 'You can only add 3 items per playlist')
-      end
-    end
+    # if self.user_id != self.playlist.user_id
+    #   user_item_count = self.playlist.items.find_all_by_user_id(self.user_id).count
+    #   if user_item_count >= 3
+    #     errors.add(:item, 'You can only add 3 items per playlist')
+    #   end
+    # end
   end
 
 end

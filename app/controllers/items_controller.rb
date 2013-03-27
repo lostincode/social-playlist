@@ -9,12 +9,16 @@ class ItemsController < ApplicationController
   end
 
   def sort
-    @items = Item.all
+    sample_item = Item.find(params["item"].first)
+    @items = Playlist.find_by_id(sample_item.playlist_id).items #Item.find(params["item"].first).playlist.items
     #binding.pry
     @items.each do |item|
-      item.position = params['item'].index(item.id.to_s) + 1
-      item.save
+      item.position = params['item'].index(item.id.to_s)
+      logger.info "params index: #{params['item'].index(item.id)}"
+      logger.info "item.id #{item.id} - item.position #{item.position}"
+      item.save!
     end
+    #
     render :nothing => true
   end
 

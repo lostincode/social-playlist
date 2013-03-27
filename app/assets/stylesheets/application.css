@@ -16,3 +16,7 @@
 /*
  *= require jquery.ui.all
  */
+
+ .this-carousel-id   {
+            width: 1200px;
+            height: 480px; }

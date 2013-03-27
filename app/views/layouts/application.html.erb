@@ -32,14 +32,14 @@
                 <nav class="pull-right">
                   <% if user_signed_in? %>
                   <span class="whiteOut">Signed in as <strong><em><%= getUserFromEmail(current_user.email) %></em></strong></span>
-                  <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn btn-small' %>
+                  <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn btn-small btn-danger' %>
                 <% else %>
                   <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-small btn-success' %>
                   <%= link_to "Sign in", new_user_session_path, :class => 'btn btn-small' %>
                 <% end %>
                 </nav>
             <ul class="nav">
-              <li<%= controller.controller_name.eql?('welcome') ? ' class="active"' : ' class="active"' %>><a href="/">Home</a></li>
+              <li<%= controller.controller_name.eql?('welcome') ? ' class="active"' : '' %>><a href="/">Home</a></li>
               <li><a href="/playlists">Playlists</a></li>
             </ul>
           </div><!--/.nav-collapse -->

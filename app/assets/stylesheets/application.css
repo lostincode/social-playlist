@@ -10,6 +10,8 @@
  *
  *= require_self
  *= require_tree .
+ *= require twitter/bootstrap
+ *= require twitter/bootstrap-responsive
  */
 .whiteOut { color:#FFF; margin-right:5px; font-size:12px;}
 

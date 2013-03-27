@@ -1,22 +1,44 @@
 <% if user_signed_in? %>
   <%= link_to 'New Playlist', new_playlist_path, :class => "btn btn-success" %>
 <% end %>
-<h2>Playlists</h2>
-
-  <ul class="nav nav-tabs nav-stacked">
-    <% @playlists.each do |playlist| %>
-      <li><%= link_to playlist.name, playlist %></li>
-    <% end %>
-  </ul>
+<h2>Playlists</h2><br />
 
 
-      <!-- Example row of columns -->
-      <div class="row">
-        <% @playlists.each do |playlist| %>
-        <div class="span4">
-          <h3><%= link_to truncate(playlist.name, :length => 20), playlist %></h3>
-          <p><%= playlist.description %></p>
-          <p><a class="btn" href="#">View &raquo;</a></p>
-        </div>
-        <% end %>
-      </div>
+    <div class="row">
+      <% @playlists.each do |playlist| %>
+          <% thumbnailurl = playlist.songs.empty? ? '' : playlist.songs.sample.url.gsub("http://www.youtube.com/watch?v=", "") %>
+            <div class="span6 bottom-margin">
+
+              <div class="row">
+                <div class="span2">
+                  <%= link_to (image_tag "http://i1.ytimg.com/vi/#{thumbnailurl}/mqdefault.jpg"),
+                      playlist, :class => 'thumbnail' %>
+                </div>
+                <div class="span4">
+                  <p>
+                    <h4><strong><%= link_to playlist.name, playlist %></strong></h4>
+                    <%= playlist.description %>
+                  </p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="span6">
+                  <p></p>
+                  <p>
+                      <i class="icon-th-list"></i> <%= pluralize(playlist.songs.size, 'video') %>
+                    · <i class="icon-user"></i> <a href="#"><%= playlist.user %></a>
+                    · <i class="icon-calendar"></i> <%= playlist.created_at.to_time.strftime('%B %e') %>
+                    · <i class="icon-comment"></i> <a href="#"><%= pluralize(playlist.comments.size, 'comment') %></a>
+                    · <i class="icon-tags"></i>
+                    <% playlist.tags.each do |tag| %>
+                      <a href="#"><span class="label label-info"><%= tag.name %></span></a>
+                    <% end %>
+                  </p>
+                </div>
+              </div>
+
+            </div><!--span6-->
+
+      <% end %>
+  </div>

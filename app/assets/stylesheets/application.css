@@ -14,7 +14,12 @@
  *= require twitter/bootstrap-responsive
  */
 .whiteOut { color:#FFF; margin-right:5px; font-size:12px;}
-
+span.tag a {color:#FFF;}
+.bottom-margin {
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #EDEDED;
+}
 /*
  *= require jquery.ui.all
  */

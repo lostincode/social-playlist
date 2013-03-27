@@ -6,7 +6,7 @@ feature "Editing Playlists" do
   before do
     Factory(:playlist, :name => "TextMate 2", :user => user)
     sign_in_as!(user)
-    visit '/'
+    visit '/playlists'
     click_link "TextMate 2"
     click_link "Edit Playlist"
   end

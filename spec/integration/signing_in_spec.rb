@@ -11,7 +11,7 @@ feature 'Signing in' do
     p current_email.body
     click_first_link_in_email
     page.should have_content("Your account was successfully confirmed")
-    page.should have_content("Signed in as user@social-playlist.com")
+    page.should have_content("Signed in as user")
   end
 
   scenario 'Signing in via form' do

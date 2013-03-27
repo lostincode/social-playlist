@@ -10,21 +10,20 @@ feature "Deleting playlists" do
 
   scenario "Deleting a playlist" do
     sign_in_as!(user)
-    visit '/'
+    visit '/playlists'
     click_link "Mike's Seattle Jams"
     click_link "Delete Playlist"
     page.should have_content("Playlist has been deleted.")
 
-    visit '/'
+    visit '/playlists'
     page.should_not have_content("Test Playlist")
   end
 
   scenario "Only owner can delete his/her playlist" do
     sign_in_as!(user_normal)
-    visit '/'
+    visit '/playlists'
     click_link "Mike's Seattle Jams"
-    click_link "Delete Playlist"
-    page.should have_content("You cannot delete this playlist.")
+    page.should_not have_content("Delete Playlist")
   end
 
 end

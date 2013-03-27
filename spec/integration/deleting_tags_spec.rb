@@ -6,7 +6,7 @@ feature 'Deleting Tags' do
 
   before do
     sign_in_as!(user)
-    visit '/'
+    visit '/playlists'
     click_link playlist.name
   end
 

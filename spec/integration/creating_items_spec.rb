@@ -9,7 +9,7 @@ feature "Creating items" do
   context "Playlist owner" do
     before do
       sign_in_as!(playlist_owner_user)
-      visit '/'
+      visit '/playlists'
       click_link playlist.name
       click_link "New Item"
     end
@@ -36,26 +36,11 @@ feature "Creating items" do
     end
   end
 
-=begin
-  context "Unauthorized user" do
-    before do
-      sign_in_as!(no_permission_user)
-      visit '/'
-      click_link playlist.name
-      click_link "New Item"
-    end
-
-    scenario "Creating an item with a user who has permission" do
-      page.should have_content("You cannot create items on this playlist.")
-    end
-  end
-=end
-
   context "Authorized user" do
     before do
       sign_in_as!(has_permission_user)
       define_permission!(has_permission_user, "create items", playlist)
-      visit '/'
+      visit '/playlists'
       click_link playlist.name
       click_link "New Item"
     end

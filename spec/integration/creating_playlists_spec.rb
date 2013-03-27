@@ -5,8 +5,8 @@ feature 'Creating Playlist' do
   let!(:user) { Factory(:confirmed_user, :email => "user@social-playlist.com") }
 
   before do
-    visit '/'
     sign_in_as!(user)
+    visit '/playlists'
     click_link "New Playlist"
     within("h2") { page.should have_content("New Playlist") }
   end

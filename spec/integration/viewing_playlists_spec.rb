@@ -8,7 +8,7 @@ feature "Viewing playlists" do
   end
 
   scenario "Listing all playlists" do
-    visit '/'
+    visit '/playlists'
     click_link "Mike's Seattle Jams"
     page.current_url.should == playlist_url(playlist)
   end

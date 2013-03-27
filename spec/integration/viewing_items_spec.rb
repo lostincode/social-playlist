@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 feature "Viewing items" do
-  let!(:user) {Factory(:confirmed_user) }
-  let!(:user2) {Factory(:confirmed_user) }
+  let!(:user) { Factory(:confirmed_user) }
+  let!(:user2) { Factory(:confirmed_user) }
 
   before do
     sample_playlist = Factory(:playlist, :name => "Mike's Seattle Jams", :user => user)
@@ -12,7 +12,7 @@ feature "Viewing items" do
     sample_playlist_2 = Factory(:playlist, :name => "Bill's Florida Summer Jams", :user => user2)
     Factory(:item, :playlist => sample_playlist_2, :title => "Sample track 2", :song => sample_song)
 
-    visit '/'
+    visit '/playlists'
   end
 
   scenario "Viewing items for a given playlist" do

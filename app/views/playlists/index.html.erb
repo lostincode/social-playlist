@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <%= link_to 'New Playlist', new_playlist_path, :class => "btn" %>
+  <%= link_to 'New Playlist', new_playlist_path, :class => "btn btn-success" %>
 <% end %>
 <h2>Playlists</h2>
 
@@ -8,3 +8,15 @@
       <li><%= link_to playlist.name, playlist %></li>
     <% end %>
   </ul>
+
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <% @playlists.each do |playlist| %>
+        <div class="span4">
+          <h3><%= link_to truncate(playlist.name, :length => 20), playlist %></h3>
+          <p><%= playlist.description %></p>
+          <p><a class="btn" href="#">View &raquo;</a></p>
+        </div>
+        <% end %>
+      </div>

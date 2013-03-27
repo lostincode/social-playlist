@@ -1,6 +1,5 @@
 <% title(@playlist.name, "Playlists") %>
 
-
 <% if current_user.present? %>
 <div class="btn-group pull-right">
   <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -62,20 +61,20 @@
       // Sorting the list
 
       $(document).ready(function(){
-        $('#items').sortable({
+        var $items = $('#items');
+        $items.sortable({
             dropOnEmpty: false,
-            handle: '.handle',
-            cursor: 'crosshair',
+            cursor: 'move',
             items: 'li',
             opacity: 0.4,
             scroll: true,
             update: function(){
                         $.ajax({
                         type: 'post',
-                        data: $('#items').sortable('serialize'),
+                        data: $items.sortable('serialize'),
                         dataType: 'script',
                         complete: function(request){
-                          $('#items').effect('highlight');
+                          $items.effect('highlight');
                         },
                         url: '<%= @playlist.id %>/items/sort'})}
             });

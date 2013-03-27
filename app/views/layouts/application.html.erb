@@ -39,7 +39,7 @@
                 <% end %>
                 </nav>
             <ul class="nav">
-              <li class="active"><a href="/">Home</a></li>
+              <li<%= controller.controller_name.eql?('welcome') ? ' class="active"' : ' class="active"' %>><a href="/">Home</a></li>
               <li><a href="/playlists">Playlists</a></li>
             </ul>
           </div><!--/.nav-collapse -->

@@ -20,6 +20,9 @@ span.tag a {color:#FFF;}
   padding-bottom: 5px;
   border-bottom: 1px solid #EDEDED;
 }
+.right-left {
+  margin-left:5px;
+}
 /*
  *= require jquery.ui.all
  */

@@ -1,13 +1,13 @@
 <% title(@playlist.name, "Playlists") %>
 
 <% if current_user.present? %>
+<%= link_to "New Item", new_playlist_item_path(@playlist), :class => 'btn btn-success pull-right right-left' %>
 <div class="btn-group pull-right">
   <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
     <i class="icon-cog"></i> Action
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu">
-    <li><%= link_to "New Item", new_playlist_item_path(@playlist) %></li>
     <% is_playlist_owner(@playlist) do %>
     <li><%= link_to "Edit Playlist", edit_playlist_path(@playlist) %></li>
     <li class="divider"></li>
@@ -25,7 +25,7 @@
 <p class="lead">Description:  <%= @playlist.description %></p>
 
 <div id='playlist'>
-  <%= @playlist.items.size %> videos <span id='user'>created by <i class="icon-user"></i><strong><em><%= getUserFromEmail(@playlist.user.email) %></strong></em></span>
+  <%= @playlist.items.size %> videos <span id='user'>created by <i class="icon-user"></i> <strong><em><%= getUserFromEmail(@playlist.user.email) %></strong></em></span>
 </div><br />
 
 
@@ -59,7 +59,6 @@
       <%= javascript_tag do %>
 
       // Sorting the list
-
       $(document).ready(function(){
         var $items = $('#items');
         $items.sortable({
@@ -75,6 +74,7 @@
                         dataType: 'script',
                         complete: function(request){
                           $items.effect('highlight');
+                          thePlayer.refreshPlayer();
                         },
                         url: '<%= @playlist.id %>/items/sort'})}
             });
@@ -85,10 +85,3 @@
   </div><!--span8 -->
 
 </div><!--row-fluid -->
-
-
-<%
-@categories_string = @playlist.items.map {|item|
-  "#{item.song.url.gsub("http://www.youtube.com/watch?v=", "")}"
-}.join(',')
-%>

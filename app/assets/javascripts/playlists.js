@@ -29,7 +29,15 @@
       },
       logEvent : function(string) {
           console.log(">> API EVENT: "+string);
+      },
+      refreshPlayer : function(){
+        $items = [];
+        var allItems = $("#items img");
+        if(allItems.length > 0){
+          allItems.each(function(i){ $items[i] = $(this).data('yt') })
+          thePlayer.player.cuePlaylist($items.join());
         }
+      }
     }
 
     function onYouTubeIframeAPIReady() {

@@ -3,7 +3,7 @@ require 'json'
 
 class Song < ActiveRecord::Base
   attr_accessible :url
-  validates_format_of :url, :with => URI.regexp(['^http'])
+  validates_format_of :url, :with => URI.regexp(['http'])
   #validate :validYTID
   validates :url, uniqueness: true
 

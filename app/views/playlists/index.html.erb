@@ -32,7 +32,7 @@
                     · <i class="icon-comment"></i> <a href="#"><%= pluralize(playlist.comments.size, 'comment') %></a>
                     · <i class="icon-tags"></i>
                     <% playlist.tags.each do |tag| %>
-                      <a href="#"><span class="label label-info"><%= tag.name %></span></a>
+                    <%= link_to tag.name, search_playlists_path(:search => "tag:#{tag.name}"), :class => 'label label-info' %>
                     <% end %>
                   </p>
                 </div>

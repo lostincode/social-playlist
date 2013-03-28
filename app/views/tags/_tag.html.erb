@@ -7,6 +7,6 @@
       :id => "delete-#{tag.name.parameterize}" %>
 <% end %>
 <%= link_to tag.name,
-              search_playlists_path(@playlist,
+              search_playlists_path(
              :search => "tag:#{tag.name}") %>
 </span>

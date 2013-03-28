@@ -22,7 +22,7 @@
 <% end %>
 
 <h3><%= @playlist.name %></h3>
-<p class="lead">Description:  <%= @playlist.description %></p>
+<p class="lead"><%= @playlist.description %></p>
 
 <div id='playlist'>
   <%= @playlist.items.size %> videos <span id='user'>created by <i class="icon-user"></i> <strong><em><%= getUserFromEmail(@playlist.user.email) %></strong></em></span>

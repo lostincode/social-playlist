@@ -7,15 +7,15 @@
 
   <p>
     <%= f.label :description, "Please describe your playlist..." %>
-    <%= f.text_field :description %>
+    <%= f.text_area :description, :size => "30x3" %>
   </p>
   <p>
-    Shared?
-    <label class="radio">
+    Shared?<br />
+    <label class="radio inline">
     <%= f.radio_button :shared, true %>
     Yes
     </label>
-    <label class="radio">
+    <label class="radio inline">
     <%= f.radio_button :shared, false %>
     No
     </label>

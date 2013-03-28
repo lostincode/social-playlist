@@ -1,8 +1,10 @@
 <% if user_signed_in? %>
   <%= link_to 'New Playlist', new_playlist_path, :class => "btn btn-success" %>
 <% end %>
-<h2>Playlists</h2><br />
-
+<h3>Playlists</h3>
+<% playlist_size_string = pluralize(@playlists.size, 'playlist') %>
+<%= "#{playlist_size_string} tagged with: <strong><em>#{params[:search]}</em></strong><br />".gsub('tag:','').html_safe if !params[:search].nil? %>
+<br />
 
     <div class="row">
       <% @playlists.each do |playlist| %>
@@ -29,7 +31,7 @@
                       <i class="icon-th-list"></i> <%= pluralize(playlist.songs.size, 'video') %>
                     · <i class="icon-user"></i> <a href="#"><%= playlist.user %></a>
                     · <i class="icon-calendar"></i> <%= playlist.created_at.to_time.strftime('%B %e') %>
-                    · <i class="icon-comment"></i> <a href="#"><%= pluralize(playlist.comments.size, 'comment') %></a>
+                    · <i class="icon-comment"></i> <%= pluralize(playlist.comments.size, 'comment') %>
                     · <i class="icon-tags"></i>
                     <% playlist.tags.each do |tag| %>
                     <%= link_to tag.name, search_playlists_path(:search => "tag:#{tag.name}"), :class => 'label label-info' %>

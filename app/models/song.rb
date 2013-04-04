@@ -1,5 +1,5 @@
-require 'open-uri'
-require 'json'
+#require 'open-uri'
+#require 'json'
 
 class Song < ActiveRecord::Base
   attr_accessible :url
@@ -9,8 +9,8 @@ class Song < ActiveRecord::Base
 
   private
     def validYTID
-      errors.add(:url, "must be a url") unless url.match(/^http/)
-      @result = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/lg6yrdhz65s?v=2&alt=jsonc").read)
-      rescue OpenURI::HTTPError => the_error
+      #errors.add(:url, "must be a url") unless url.match(/^http/)
+      #@result = JSON.parse(open("http://gdata.youtube.com/feeds/api/videos/lg6yrdhz65s?v=2&alt=jsonc").read)
+      #rescue OpenURI::HTTPError => the_error
     end
 end

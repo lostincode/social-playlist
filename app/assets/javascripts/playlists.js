@@ -13,7 +13,7 @@
         this.player = new YT.Player('player', {
           height: '200',
           width: '300',
-          playerVars: { 'enablejsapi': 1, 'origin' : 'http://localhost:3000','autoplay': 0,'controls': 1, 'showinfo': 0, 'iv_load_policy' : 3, 'autohide' : 1, 'loop' : 1, 'rel' : 0, 'playlist' : this.plItems },
+          playerVars: { 'enablejsapi': 1, 'origin' : 'splaylist.herokuapp.com','autoplay': 0,'controls': 1, 'showinfo': 0, 'iv_load_policy' : 3, 'autohide' : 1, 'loop' : 1, 'rel' : 0, 'playlist' : this.plItems },
           events:{'onReady':this.onPlayerReady,'onStateChange':this.onPlayerStateChange,'onError':this.onPlayerError}
           });
       },

@@ -2,13 +2,13 @@
 
 <% if current_user.present? %>
 <%= link_to "New Item", new_playlist_item_path(@playlist), :class => 'btn btn-success pull-right right-left' %>
-    <% is_playlist_owner(@playlist) do %>
 <div class="btn-group pull-right">
   <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
     <i class="icon-cog"></i> Owner-only Actions
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu">
+    <% is_playlist_owner(@playlist) do %>
     <li><%= link_to "Edit Playlist", edit_playlist_path(@playlist) %></li>
     <li class="divider"></li>
     <li><%= link_to "Delete Playlist",

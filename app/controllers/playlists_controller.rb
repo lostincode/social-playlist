@@ -60,6 +60,7 @@ private
     flash[:alert] = "The playlist you were looking for could not be found"
     redirect_to playlists_path
   end
+  
   def authorize_owner
     if current_user != @playlist.user
       flash[:alert] = "You cannot edit this playlist."

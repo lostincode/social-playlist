@@ -16,3 +16,4 @@ coverage/*
 rerun.txt
 pickle-email-*.html
 .rvmrc
+/config/application.yml

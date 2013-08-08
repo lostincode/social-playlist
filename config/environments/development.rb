@@ -20,8 +20,18 @@ SocialPlaylist::Application.configure do
   config.active_support.deprecation = :log
 
   # when emails are sent use the URL helpers
-  config.action_mailer.default_url_options = {:host => 'localhost:3000'}
-  config.action_mailer.delivery_method = :letter_opener
+  ActionMailer::Base.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default :charset => "utf-8"
+    ActionMailer::Base.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => "mxsdev@gmail.com",
+    :password             => "R2D2forPrez",
+    :authentication       => "plain"
+    }
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin

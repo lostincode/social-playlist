@@ -15,3 +15,4 @@ coverage/*
 **.orig
 rerun.txt
 pickle-email-*.html
+.rvmrc

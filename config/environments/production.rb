@@ -50,6 +50,18 @@ SocialPlaylist::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
+  # Mailer configuration.
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default charset: "utf-8"
+  config.action_mailer.default_url_options = { :host => 'http://crowdlist.herokuapp.com' }
+    ActionMailer::Base.smtp_settings = {
+      :address        => "smtp.sendgrid.net",
+      :port           => "25",
+      :authentication => :plain,
+      :user_name      => ENV['SENDGRID_USERNAME'],
+      :password       => ENV['SENDGRID_PASSWORD'],
+      :domain         => ENV['SENDGRID_DOMAIN']
+    }
 
   # Enable threaded mode
   # config.threadsafe!

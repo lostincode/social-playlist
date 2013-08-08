@@ -1,9 +1,10 @@
 SocialPlaylist::Application.routes.draw do
   get "welcome/index"
 
+  get 'welcome/how_to' => 'welcome#how_to', as: "how_to" 
   devise_for :users
 
-    root :to => 'welcome#index'
+    root :to => 'welcome#index', as: "index"
 
     resources :playlists do
       resources :items do

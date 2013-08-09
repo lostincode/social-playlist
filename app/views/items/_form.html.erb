@@ -6,8 +6,8 @@
   </p>
   <p>
     <%= f.fields_for :song do |s| %>
-      <%= s.label :url %>
-      <%= s.text_field :url %>
+      <%= s.label :url, "URL (see note below regarding valid format)"%>
+      <%= s.text_field :url %><br>
     <% end %>
   </p>
   <%= f.submit :class => 'btn' %>

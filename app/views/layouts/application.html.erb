@@ -14,7 +14,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body >
-<br>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -37,7 +36,7 @@
             <ul class="nav">
               <li class="<%= 'active' if current_page?(index_path) %>"><a href="/">Home</a></li>
               <li class="<%= 'active' if controller.controller_name.match('playlists') %>"><a href="/playlists">Playlists</a></li>
-              <li class="<%= 'active' if current_page?(how_to_path) %>"><a href="welcome/how_to">How To</a></li>
+              <li class="<%= 'active' if current_page?(how_to_path) %>"><a href=<%= how_to_path %>>How To</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -45,7 +44,6 @@
     </div>
 
 <div class="container">
-<br>
 <% [:notice, :error, :alert].each do |level| %>
   <% unless flash[level].blank? %>
     <div class="alert alert-<%= flash_class(level) %>">

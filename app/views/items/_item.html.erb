@@ -1,5 +1,5 @@
 <li id="item_<%= item.id %>">
   <% curr_yt_id = item.song.url.gsub("http://www.youtube.com/watch?v=", "") %>
   <a href="#" class="il"><img src="http://i1.ytimg.com/vi/<%= curr_yt_id %>/mqdefault.jpg" class="img-polaroid" width="140" data-yt="<%= curr_yt_id %>" /></a>
-  <%= link_to truncate(item.title, :length => 22), [@playlist, item], :class => 'tl' %>
+  <%= link_to truncate(item.title, :length => 44), [@playlist, item], :class => 'tl' %>
 </li>

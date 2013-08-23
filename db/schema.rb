@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326153550) do
+ActiveRecord::Schema.define(:version => 20130809061455) do
 
   create_table "comments", :force => true do |t|
     t.text     "comment"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20130326153550) do
     t.string   "url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "video_id"
   end
 
   add_index "songs", ["url"], :name => "index_songs_on_url", :unique => true

@@ -12,8 +12,13 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-</head>
-<body >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript"> $(function ()
+    { $("#myModal").modal({show:false }); </script>
+  </head>
+  <body>
+    <%= render "welcome/sign_in_modal" %>                         
+    <%= render "welcome/sign_up_modal" %>                         
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -30,7 +35,9 @@
                   <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn btn-small btn-danger' %>
                 <% else %>
                   <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-small btn-success' %>
+                  <%= link_to "Sign up", "#sign_up", "data-toggle" => "modal", :class => 'btn btn-small btn-success' %>
                   <%= link_to "Sign in", new_user_session_path, :class => 'btn btn-small' %>
+                  <%= link_to "LoginM", "#login", "data-toggle" => "modal", :class => 'btn btn-small' %>
                 <% end %>
                 </nav>
             <ul class="nav">

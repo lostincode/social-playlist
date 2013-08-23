@@ -34,10 +34,8 @@
                   <span class="whiteOut">Signed in as <strong><em><%= getUserFromEmail(current_user.email) %></em></strong></span>
                   <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn btn-small btn-danger' %>
                 <% else %>
-                  <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-small btn-success' %>
                   <%= link_to "Sign up", "#sign_up", "data-toggle" => "modal", :class => 'btn btn-small btn-success' %>
-                  <%= link_to "Sign in", new_user_session_path, :class => 'btn btn-small' %>
-                  <%= link_to "LoginM", "#login", "data-toggle" => "modal", :class => 'btn btn-small' %>
+                  <%= link_to "Login", "#login", "data-toggle" => "modal", :class => 'btn btn-small' %>
                 <% end %>
                 </nav>
             <ul class="nav">

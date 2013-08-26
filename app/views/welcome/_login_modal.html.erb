@@ -14,7 +14,7 @@
     <% if devise_mapping.rememberable? -%>
       <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
     <% end -%>
-    <div><%= f.submit "Sign in" %></div>
+    <div><%= f.submit "Sign in", :class => 'btn btn-small btn-success' %></div>
     <% end %>
   </div>
   <div class="modal-footer">

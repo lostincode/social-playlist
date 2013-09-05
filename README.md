@@ -9,4 +9,4 @@ Collaborate on group playlists
 About the creators:
 Social Playlist built on RoR was developed by Mike Strand and Bill Richards during the first ever CodeFellows RoR bootcamp in Seattle, WA during March of 2013.
 
-It's hosted on Heroku at http://crowdlist.herokuapp.com
+It's hosted on Heroku and live at www.social-playlist.com

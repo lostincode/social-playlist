@@ -66,7 +66,24 @@
 
     <footer class="footer">
       <div class="container">
-        <p>Crafted with love by <a href="https://twitter.com/lostincode" target="_blank">@lostincode</a> and <a href="https://twitter.com/mxstrand" target="_blank">@mxstrand</a>. Fork us on <a href="https://github.com/lostincode/social-playlist" target="_blank">github</a>.</p>
+        <div class="span11">
+          <p class="pull-left">Crafted with love by <a href="https://twitter.com/lostincode" target="_blank">@lostincode</a> and <a href="https://twitter.com/mxstrand" target="_blank">@mxstrand</a>. Find us on the internet by clicking the below images.</p><br><br>
+        </div>
+        <div class="span5">
+          <div class="classysocial" data-orientation="line" data-image-type="facebook" data-picture="bill.richards" data-github-handle="lostincode" data-twitter-handle="lostincode" data-linkedin-handle="13257026" data-email-handle="bill@mixpod.com" data-networks="github,twitter,linkedin,email">bar</div>
+        </div>
+        <div class="span6">
+          <div class="classysocial" data-orientation="line" data-image-type="facebook" data-picture="mxstrand" data-github-handle="mxstrand" data-twitter-handle="mxstrand" data-linkedin-handle="mikestrand" data-email-handle="mxstrand@hotmail.com" data-wordpress-handle="strandcode" data-networks="github,twitter,linkedin,wordpress,email"></div>
+        </div>
+        <br><br><br><br><br><br>
+        <div class="span11">
+          <p class="pull-left" style="margin-top:8px">Source code for Social-Playlist can be found on <a href="https://github.com/lostincode/social-playlist" target="_blank">github</a>.</p>
+        </div>
+        <script>
+          $(".classysocial").each(function() {
+            new ClassySocial(this);
+          });
+        </script>
       </div>
       <%-# Google Analytics -%>
       <script>

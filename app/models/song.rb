@@ -6,7 +6,7 @@ class Song < ActiveRecord::Base
   validates_format_of :url, :with => URI.regexp(['http'])
   #validate :validYTID
   validates :url, uniqueness: true
-  before_create :record_parsed_url
+  # before_create :record_parsed_url
 
   #def record_parsed_url
   #  self.video_id = parse_youtube(self.url)

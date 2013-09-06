@@ -8,15 +8,15 @@ class Song < ActiveRecord::Base
   validates :url, uniqueness: true
   before_create :record_parsed_url
 
-  def record_parsed_url
-    self.video_id = parse_youtube(self.url)
-    self.video_id = video_id
-  end
+  #def record_parsed_url
+  #  self.video_id = parse_youtube(self.url)
+  #  self.video_id = video_id
+  # end
 
-  def parse_youtube url
-    regex = /^(?:http:\/\/)?(?:www\.)?\w*\.\w*\/(?:watch\?v=)?((?:p\/)?[\w\-]+)/
-    url.match(regex)[1]
-  end
+  # def parse_youtube url
+  #  regex = /^(?:http:\/\/)?(?:www\.)?\w*\.\w*\/(?:watch\?v=)?((?:p\/)?[\w\-]+)/
+  #  url.match(regex)[1]
+  # end
 
   private
     def validYTID
